@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITS BOUQUET</title>
+    <link rel="icon" href="/img/Logo_only_no_bg.png" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/aos.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animasi hamburger */
+        .bar {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .open .bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .open .bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Animasi menu slide */
+        .menu-hidden {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .menu-visible {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* Blur saat scroll */
+        .scrolled {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+        }
+
+        /* Animasi hover gambar */
+        .portfolio-item img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Animasi dropdown FAQ */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .faq-open {
+            max-height: 200px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-2">
+                <!-- Logo -->
+                <img src="/img/logo_only_no_bg.png" class="w-[50px]" alt="logo">
+
+                <!-- Menu Desktop -->
+                <ul class="hidden md:flex space-x-6 text-lg font-medium">
+                    <li><a href="#home" class="text-gray-700 hover:text-gray-900">Home</a></li>
+                    <li><a href="#produk" class="text-gray-700 hover:text-gray-900">Produk</a></li>
+                    <li><a href="#faq" class="text-gray-700 hover:text-gray-900">FAQ</a></li>
+                    <li><a href="#kontak" class="text-gray-700 hover:text-gray-900">Kontak</a></li>
+                </ul>
+
+                <!-- Burger Button -->
+                <button id="menu-btn" class="md:hidden flex flex-col space-y-1">
+                    <div class="bar w-8 h-1 bg-gray-900"></div>
+                    <div class="bar w-8 h-1 bg-gray-900"></div>
+                    <div class="bar w-8 h-1 bg-gray-900"></div>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="md:hidden bg-white/80 backdrop-blur-md shadow-md menu-hidden absolute top-18 left-0 w-full p-4">
+                <ul class="flex flex-col items-center space-y-4 text-lg font-medium">
+                    <li><a href="#home" class="text-gray-700 hover:text-gray-900">Home</a></li>
+                    <li><a href="#produk" class="text-gray-700 hover:text-gray-900">Produk</a></li>
+                    <li><a href="#faq" class="text-gray-700 hover:text-gray-900">FAQ</a></li>
+                    <li><a href="#kontak" class="text-gray-700 hover:text-gray-900">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="h-screen flex flex-col items-center justify-center mb-32" id="home">
+        <h1 data-aos="fade-up" class="text-4xl font-medium text-[#c9a051] pt-32">Selamat Datang Di</h1>
+        <img data-aos="zoom-in" src="/img/logo_no_bg.png" alt="logo">
+        <div class="w-full lg:px-56 sm:px-8 px-20 md:scroll-px-20 text-xl text-center mb-8">
+            <p>
+                Kami menghadirkan berbagai jenis buket, tidak hanya bunga! Dari buket uang, buket snack, buket boneka,
+                hingga buket custom sesuai keinginan Anda. Jadikan setiap hadiah lebih bermakna dengan sentuhan spesial
+                dari kami
+            </p>
+        </div>
+        <a class="py-5 px-20 bg-[#AF8E4F] text-white text-xl rounded-md" href="https://wa.me/628884587205">Pesan Sekarang</a>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6 pt-28" id="produk">
+        <h2 class="text-3xl font-bold text-center mb-8 text-[#c9a051]" data-aos="fade-up">Produk Kami</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Gambar-gambar -->
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/1.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/2.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/3.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/4.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/5.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/6.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/7.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+            <div class="portfolio-item overflow-hidden rounded-lg shadow-md" data-aos="flip-left">
+                <img src="/img/8.jpg" alt="Photo" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="max-w-4xl mx-auto py-12 px-6 pt-28" id="faq" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-center mb-8 text-[#c9a051]">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-4 shadow-md rounded-md">
+                <button class="faq-btn w-full text-left font-semibold text-lg flex justify-between items-center">
+                    Bagaimana jika ingin melakukan pemesanan?
+                    <span class="faq-icon text-2xl font-bold">+</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600">
+                    <p class="mt-2">Silahkan langsung Whatsapp ke 08884587205 dengan meminta format order kepada
+                        admin yaa..</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up">
+                <button class="faq-btn w-full text-left font-semibold text-lg flex justify-between items-center">
+                    Lokasinya dimana?
+                    <span class="faq-icon text-2xl font-bold">+</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600">
+                    <p class="mt-2">Lokasi kami berada di Jl. Dg Regge, Makassar yaa..</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up">
+                <button class="faq-btn w-full text-left font-semibold text-lg flex justify-between items-center">
+                    Apa bisa shipping diluar area Makassar?
+                    <span class="faq-icon text-2xl font-bold">+</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600">
+                    <p class="mt-2">Tentu saja. Jasa pengiriman yang digunakan yaitu J&T dan POS Indonesia yaa.. Jika
+                        ada opsi lain yang disarankan oleh customer maka kami akan mempertimbangkan agar menghindari
+                        resko barang rusak.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up">
+                <button class="faq-btn w-full text-left font-semibold text-lg flex justify-between items-center">
+                    Apa boleh request/custom?
+                    <span class="faq-icon text-2xl font-bold">+</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600">
+                    <p class="mt-2">Tentu saja. Selama persediaan yang kamu request masih tersedia yaa.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up">
+                <button class="faq-btn w-full text-left font-semibold text-lg flex justify-between items-center">
+                    Apa boleh COD?
+                    <span class="faq-icon text-2xl font-bold">+</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600">
+                    <p class="mt-2">COD menggunakan jasa pengiriman via Maxim dan COD tidak berlaku untuk pengiriman
+                        diluar area Makassar yaa..</p>
+                </div>
+            </div>
+            <!-- FAQ 6 -->
+            <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up">
+                <button class="faq-btn w-full text-left font-semibold text-lg flex justify-between items-center">
+                    Apa buket uangnya menggunakan uang palsu?
+                    <span class="faq-icon text-2xl font-bold">+</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600">
+                    <p class="mt-2">Tentu saja tidak. Kami menggunakan uang asli yaa..</p>
+                </div>
+            </div>
+            <!-- FAQ 7 -->
+            <div class="bg-white p-4 shadow-md rounded-md" data-aos="fade-up">
+                <button class="faq-btn w-full text-left font-semibold text-lg flex justify-between items-center">
+                    Apa ada syarat yang harus diikuti sebelum memesan disini?
+                    <span class="faq-icon text-2xl font-bold">+</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600">
+                    <p class="mt-2">Untuk pemesanan buket uang dan shipping diluar Makassar unutuk Gift Box,
+                        kamimemiliki syarat yaang harus disetujui oleh customer. Silahkan hubungi admin yaa..</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-aos="fade-up" class="max-w-4xl mx-auto py-12 px-6 pt-28 mb-20" id="kontak">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4 text-[#c9a051]">Kontak Kami</h2>
+            <p class="text-gray-600 mb-6">Hubungi kami untuk pemesanan atau informasi lebih lanjut!</p>
+            
+            <div class="flex flex-col gap-4 md:flex-row md:justify-center">
+              <!-- WhatsApp -->
+              <a href="https://wa.me/628884587205" target="_blank"
+                class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition">
+                WhatsApp
+              </a>
+              
+              <!-- Instagram -->
+              <a href="https://instagram.com/itsbouquet_" target="_blank"
+                class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition">
+                Instagram
+              </a>
+            </div>
+          </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-[#272623] text-white">
+        © <%= new Date().getFullYear() %> ITS BOUQUET. All Rights Reserved.<br>
+        Unauthorized use or reproduction of content is strictly prohibited.
+    </footer>
+    
+    <script src="/js/main.js"></script>
+    <script src="/aos.js"></script>
+    <script src="/js/configAos.js"></script>
+</body>
+
+</html>
